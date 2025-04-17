@@ -23,7 +23,7 @@ class RateLimit(object):
 ```
 
 ### Naming
-- It should be clear what a function does from it's name.
+- It should be clear what a function does from its name.
 
 **Wrong:**
 ```python
@@ -38,7 +38,7 @@ def is_ip_address(value):
 - It's okay to not use a language's feature if it harms readability.
 - There might be a design pattern, but that design pattern may not necessarily be a good design pattern.
 
-**Example**: Don't use `partial`. It's always hard to read.
+**Example**: Don't use `functools.partial`. It's always hard to read.
 
 ## Code structure
 
@@ -53,7 +53,7 @@ def is_ip_address(value):
 - Ideally use `dataclass` or some model we can rely on.
 - Also, data and data manipulation should be ideally separated. Dataclass and function is always better than class that is partially data and some random behaviour stuck to it.
 
-**Example**: A service client returns its own model, not `requsts.Response` object.
+**Example**: A service client returns its own model, not `requests.Response` object.
 
 **Note**: I'm not alone with this philosophy. Here is a quote from Linus Torvalds (https://lwn.net/Articles/193245/):
 > …git actually has a simple design, with stable and reasonably well-documented data structures. In fact, I'm a huge proponent of designing your code around the data, rather than the other way around, and I think it's one of the reasons git has been fairly successful […] I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
