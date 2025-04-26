@@ -63,6 +63,11 @@ def is_ip_address(value):
 - We can use dummy implementation of such clients/repositories in test. It reduces the need of using mocks.
 - Assemble these dependencies using DI, to keep good testability.
 
+### Validate inputs as soon as possible
+- If you have your own data type (enum, dataclass), pass its instance, not raw data.
+- The sooner validation happen, the fewer control flow branches your application needs.
+- If you need to detect an input error in the lower layers of your code, raise the most specific error type possible - very often your custom exception. It's easy to miss the original source of `ValueError` several layers above.
+
 ### Keep your codebase in "easy to switch" state
 - Use proper isolation for very uncertain decision. A library could be wrapped in own repository. A tool could be wrapped by command definition in `Makefile`.
 - Changing pieces of your code must be easy all the time. Once you've locked yourself in one tool/library, you have a problem.
